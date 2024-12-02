@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
+
 namespace UnityCommon
 {
     public static class RegexStringExtensions

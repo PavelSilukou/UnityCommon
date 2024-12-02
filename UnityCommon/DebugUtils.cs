@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
+
 namespace UnityCommon
 {
     public static class DebugUtils
@@ -18,6 +22,11 @@ namespace UnityCommon
             {
                 Debug.Log(element);
             }
+        }
+        
+        public static void LogVector(Vector2 v, int precision = 4)
+        {
+            Debug.Log(v.ToString($"F{precision}"));
         }
 
         public static void LogVector(Vector3 v, int precision = 4)

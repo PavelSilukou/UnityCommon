@@ -2,6 +2,10 @@
 using System.Linq;
 using UnityEngine;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
+
 namespace UnityCommon
 {
     // TODO: not optimized

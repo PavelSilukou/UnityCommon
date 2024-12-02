@@ -1,5 +1,9 @@
 using System;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
+
 namespace UnityCommon
 {
     public static class FloatUtils

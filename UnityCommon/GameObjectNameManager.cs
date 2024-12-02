@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
+
 namespace UnityCommon
 {
     public class GameObjectNameManager : Singleton<GameObjectNameManager>
@@ -12,10 +16,7 @@ namespace UnityCommon
             if (oldName.Contains("(Clone)") == false) return oldName;
             
             var logicName = oldName[..oldName.LastIndexOf("(Clone)", StringComparison.Ordinal)];
-            if (_namesDict.ContainsKey(logicName) == false)
-            {
-                _namesDict.Add(logicName, 0);
-            }
+            _namesDict.TryAdd(logicName, 0);
 
             var newInd = _namesDict[logicName] + 1;
             var newName = $"{logicName}_{newInd}";

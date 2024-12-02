@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
+
 namespace UnityCommon
 {
     public static class Vector2Extensions
     {
-        public static Vector2 Rotate(this Vector2 vector, float angle)
+        public static Vector3 ToYVector3(this Vector2 vector)
         {
-            angle *= Mathf.Deg2Rad;
-            return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            return new Vector3(vector.x, 0.0f, vector.y);
         }
     }
 }
