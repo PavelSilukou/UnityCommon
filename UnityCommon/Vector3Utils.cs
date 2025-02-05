@@ -1,8 +1,9 @@
-﻿using UnityEngine;
-
-// ReSharper disable MemberCanBePrivate.Global
+﻿// ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
+#pragma warning disable S2234 // Arguments should be passed in the same order as the method parameters
+
+using UnityEngine;
 
 namespace UnityCommon
 {
@@ -25,32 +26,6 @@ namespace UnityCommon
         {
             return Vector3.Distance(vector1, vector2) >= distance - threshold
                    && Vector3.Distance(vector1, vector2) <= distance + threshold;
-        }
-
-        public static bool Intersection(
-            out Vector3 intersection,
-            Vector3 point1,
-            Vector3 point2,
-            Vector3 point3,
-            Vector3 point4)
-        {
-            var vector1 = point2 - point1;
-            var vector2 = point4 - point3;
-            var vector3 = point3 - point1;
-            var crossVector1AndVector2 = Vector3.Cross(vector1, vector2);
-            var crossVector3AndVector2 = Vector3.Cross(vector3, vector2);
-
-            var planarFactor = Vector3.Dot(vector3, crossVector1AndVector2);
-            if (Mathf.Abs(planarFactor) < 0.0001f && crossVector1AndVector2.sqrMagnitude > 0.0001f)
-            {
-                var s = Vector3.Dot(crossVector3AndVector2, crossVector1AndVector2) 
-                        / crossVector1AndVector2.sqrMagnitude;
-                intersection = point1 + vector1 * s;
-                return true;
-            }
-            
-            intersection = Vector3.zero;
-            return false;
         }
         
         public static bool ClosestPointsOnTwoLines(out Vector3 closestPointLine1, out Vector3 closestPointLine2, Vector3 point1, Vector3 point2, Vector3 point3, Vector3 point4)

@@ -1,8 +1,8 @@
-using UnityEngine;
-
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
+
+using UnityEngine;
 
 namespace UnityCommon
 {
@@ -71,17 +71,12 @@ namespace UnityCommon
                 return 0;
             }
 
-            if (diff > 0)
+            return diff switch
             {
-                return 1;
-            }
-
-            if (diff < 0)
-            {
-                return -1;
-            }
-
-            return 0;
+                > 0 => 1,
+                < 0 => -1,
+                _ => 0
+            };
         }
 
         public static int EqualsByZ(this Vector3 vector1, Vector3 vector2, float threshold)
@@ -96,17 +91,12 @@ namespace UnityCommon
                 return 0;
             }
 
-            if (diff > 0)
+            return diff switch
             {
-                return 1;
-            }
-
-            if (diff < 0)
-            {
-                return -1;
-            }
-
-            return 0;
+                > 0 => 1,
+                < 0 => -1,
+                _ => 0
+            };
         }
     }
 }

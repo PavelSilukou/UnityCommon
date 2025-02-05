@@ -1,9 +1,9 @@
-﻿using System;
-using System.Text;
-
-// ReSharper disable MemberCanBePrivate.Global
+﻿// ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
+
+using System;
+using System.Text;
 
 namespace UnityCommon
 {

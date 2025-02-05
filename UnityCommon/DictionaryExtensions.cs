@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
+
+using System.Collections.Generic;
 
 namespace UnityCommon
 {

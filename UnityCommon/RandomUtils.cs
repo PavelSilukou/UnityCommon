@@ -1,14 +1,14 @@
-﻿using System;
-
-// ReSharper disable MemberCanBePrivate.Global
+﻿// ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
+
+using System;
 
 namespace UnityCommon
 {
     public class RandomUtils
     {
-        private readonly Random _rand = new Random();
+        private readonly Random _rand = new();
 
         public bool RandomChance01(float chance)
         {

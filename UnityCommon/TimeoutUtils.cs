@@ -1,9 +1,9 @@
-using System.Collections;
-using UnityEngine;
-
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
+
+using System.Collections;
+using UnityEngine;
 
 namespace UnityCommon
 {

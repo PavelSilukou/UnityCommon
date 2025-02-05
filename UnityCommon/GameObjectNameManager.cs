@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
-
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
+
+using System;
+using System.Collections.Generic;
 
 namespace UnityCommon
 {
     public class GameObjectNameManager : Singleton<GameObjectNameManager>
     {
-        private readonly Dictionary<string, int> _namesDict = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> _namesDict = new();
 
         public string GetName(string oldName)
         {
