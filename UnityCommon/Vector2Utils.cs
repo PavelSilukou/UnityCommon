@@ -8,6 +8,11 @@ namespace UnityCommon
 {
 	public static class Vector2Utils
 	{
+		public static Vector2 RotateRad(float radians)
+		{
+			return new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
+		}
+		
 		public static Vector2 RotateRad(Vector2 vector, float radians)
 		{
 			var cos = Mathf.Cos(radians);
@@ -17,9 +22,15 @@ namespace UnityCommon
 			return new Vector2(x, y);
 		}
 		
-		public static Vector2 RotateDeg(Vector2 vector, float angle)
+		public static Vector2 RotateDeg(float degrees)
 		{
-			var radians = angle * Mathf.Deg2Rad;
+			var radians = degrees * Mathf.Deg2Rad;
+			return RotateRad(radians);
+		}
+		
+		public static Vector2 RotateDeg(Vector2 vector, float degrees)
+		{
+			var radians = degrees * Mathf.Deg2Rad;
 			return RotateRad(vector, radians);
 		}
 		
