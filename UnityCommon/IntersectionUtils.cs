@@ -39,7 +39,7 @@ namespace UnityCommon
 			return true;
 		}
 		
-		public static bool Segment2ToSegment2Intersection(
+		public static bool LineSegment2ToLineSegment2Intersection(
 			out Vector2 point,
 			Vector2 point1,
 			Vector2 point2,
@@ -112,8 +112,8 @@ namespace UnityCommon
 		}
 		
 		public static bool CircleToCircleIntersection(
-			out Vector2 intersection1, 
-			out Vector2 intersection2, 
+			out Vector2? intersection1, 
+			out Vector2? intersection2, 
 			Vector2 center1,
 			float radius1, 
 			Vector2 center2, 
@@ -122,14 +122,14 @@ namespace UnityCommon
 		{
 			if (IsCircleToCircleIntersect(center1, radius1, center2, radius2) == false)
 			{
-				intersection1 = Vector2.positiveInfinity;
-				intersection2 = Vector2.positiveInfinity;
+				intersection1 = null;
+				intersection2 = null;
 				return false;
 			}
 			
 			var x1 = center1.x;
-			var x2 = center2.x;
 			var y1 = center1.y;
+			var x2 = center2.x;
 			var y2 = center2.y;
 			
 			var r = Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2));
@@ -156,8 +156,8 @@ namespace UnityCommon
 		}
 		
 		public static bool ArcToArcIntersection(
-			out Vector2 intersection1, 
-			out Vector2 intersection2, 
+			out Vector2? intersection1, 
+			out Vector2? intersection2, 
 			Vector2 center1,
 			float radius1, 
 			Vector2 center2, 
@@ -184,8 +184,8 @@ namespace UnityCommon
 			}
 
 			var angleSign = (int)Mathf.Sign(arc1AngleDeg);
-			var anglePoint1 = Vector2Utils.AngleDeg360(arc1Point - center1, circlesIntersection1 - center1, angleSign);
-			var anglePoint2 = Vector2Utils.AngleDeg360(arc1Point - center1, circlesIntersection2 - center1, angleSign);
+			var anglePoint1 = Vector2Utils.AngleDeg360(arc1Point - center1, circlesIntersection1!.Value - center1, angleSign);
+			var anglePoint2 = Vector2Utils.AngleDeg360(arc1Point - center1, circlesIntersection2!.Value - center1, angleSign);
 			
 			if (Mathf.Abs(anglePoint1) < Mathf.Abs(arc1AngleDeg))
 			{

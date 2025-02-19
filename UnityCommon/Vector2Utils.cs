@@ -52,5 +52,28 @@ namespace UnityCommon
 			var dot = Vector2.Dot(vector1.normalized, vector2.normalized);
 			return 1 - Mathf.Abs(dot) <= threshold;
 		}
+
+		public static Vector2 PointProjectionOnLine(Vector2 point, Vector2 linePoint1, Vector2 linePoint2)
+		{
+			var vector1 = linePoint2 - linePoint1;
+			var vector2 = point - linePoint1;
+			return linePoint1 + vector1 * Vector2.Dot(vector1, vector2) / Vector2.Dot(vector1, vector1);
+		}
+
+		public static bool PointProjectionOnLineSegment(
+			out Vector2? projection,
+			Vector2 point,
+			Vector2 lineSegmentPoint1,
+			Vector2 lineSegmentPoint2)
+		{
+			var projectionOnLine = PointProjectionOnLine(point, lineSegmentPoint1, lineSegmentPoint2);
+			var dx = lineSegmentPoint2.x - lineSegmentPoint1.x;
+			var dy = lineSegmentPoint2.y - lineSegmentPoint1.y;
+			var innerProduct = (projectionOnLine.x - lineSegmentPoint1.x) * dx + (projectionOnLine.y - lineSegmentPoint1.y) * dy;
+			var isProject = 0 <= innerProduct && innerProduct <= dx * dx + dy * dy;
+
+			projection = isProject ? projectionOnLine : null;
+			return isProject;
+		}
 	}
 }
